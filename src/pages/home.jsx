@@ -32,39 +32,36 @@ const HomePage = () => {
 
 
     return (
-        <div className="flex">
-            <SideBar />
-            <div className="w-full">
-                <header className="mt-12 mb-8 max-w-7xl mx-auto">
-                    <h1 className="text-4xl font-semibold">Welcome Back! 🖐</h1>
-                </header>
-                <main className="max-w-7xl mx-auto">
-                    <h2 className="mb-6 text-xl font-semibold">Your Boards ✨</h2>
-                    <div className="flex gap-6 flex-wrap">
-                        <div className="space-y-6">
-                            <div onClick={() => (setHiddenModalAdd(!isHiddenModalAdd))} className="w-32 h-32 rounded shadow-sm flex justify-center items-center text-xl font-semibold hover:scale-105 transition-transform cursor-pointer bg-purple-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                </svg>
+        <div className="max-w-7xl mx-auto">
+            <header className="mt-12 mb-8">
+                <h1 className="text-4xl font-semibold">Welcome Back! 🖐</h1>
+            </header>
+            <main>
+                <h2 className="mb-6 text-xl font-semibold">Your Boards ✨</h2>
+                <div className="flex gap-6 flex-wrap">
+                    <div className="space-y-6">
+                        <div onClick={() => (setHiddenModalAdd(!isHiddenModalAdd))} className="w-32 h-32 rounded shadow-sm flex justify-center items-center text-xl font-semibold hover:scale-110 transition-transform cursor-pointer bg-purple-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                        </div>
+                        <div className={`${isHiddenModalAdd ? "absolute" : "hidden"} w-72 h-32 rounded-sm shadow-sm bg-purple-300 px-8 py-4 space-y-2`}>
+                            <div className="flex flex-col">
+                                <input onChange={(e) => {setTitleNewBoard(e.target.value)}} value={valueTitleNewBoard} type="text" placeholder="Title" className="focus:outline-none px-4 py-1 rounded-sm shadow"/>
                             </div>
-                            <div className={`${isHiddenModalAdd ? "absolute" : "hidden"} w-72 h-32 rounded-sm shadow-sm bg-purple-300 px-8 py-4 space-y-2`}>
-                               <div className="flex flex-col">
-                                    <input onChange={(e) => {setTitleNewBoard(e.target.value)}} value={valueTitleNewBoard} type="text" placeholder="Title" className="focus:outline-none px-4 py-1 rounded-sm shadow"/>
-                               </div>
-                               <ColorsCatWalk setColor={setColor}/>
-                                <div>
-                                    <button onClick={handleClickAddBoard} className="bg-purple-500 px-4 py-1 rounded-sm shadow float-right">Add</button>
-                                </div>
+                            <ColorsCatWalk setColor={setColor}/>
+                            <div>
+                                <button onClick={handleClickAddBoard} className="bg-purple-500 px-4 py-1 rounded-sm shadow float-right">Add</button>
                             </div>
                         </div>
-                        {
-                            Boards.map((item, index) => (
-                                <PreviewBoard key={index} title={item.title} bgColor={item.bg} />
-                            ))
-                        }
-                   </div>
-                </main>
-            </div>
+                    </div>
+                    {
+                        Boards.map((item) => (
+                            <PreviewBoard key={item.key} title={item.title} bgColor={item.bgColor} id={item.key} />
+                        ))
+                    }
+                </div>
+            </main>
         </div>
     )
 }
