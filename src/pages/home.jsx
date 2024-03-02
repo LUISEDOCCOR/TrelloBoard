@@ -4,24 +4,22 @@ import { useEffect } from "react";
 import SideBar from "../components/SideBar";
 import PreviewBoard from "../components/PreviewBoard";
 import { addBoard } from "../localStorage/boards";
-import ColorsCatWalk from "../components/colorCatwalk";
 import { getBoards } from "../localStorage/boards";
+import ModalBoard from "../components/modalBoard";
 
 
 
 const HomePage = () => {
 
     const [isHiddenModalAdd, setHiddenModalAdd] = useState(false)
-    const [valueTitleNewBoard, setTitleNewBoard] = useState("")
-    const [valueColor, setColor] = useState("")
     const [Boards, setBoards] = useState([])
 
-    const handleClickAddBoard = () => {
+    const handleClickAddBoard = (valueTitleNewBoard, valueColor, setTitleNewBoard) => {
         if(valueTitleNewBoard != ""){
             addBoard(valueTitleNewBoard, valueColor)
             setHiddenModalAdd(false)
-            setTitleNewBoard("")
             setBoards(getBoards())
+            setTitleNewBoard("")
 
         }
     }
@@ -45,15 +43,7 @@ const HomePage = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                             </svg>
                         </div>
-                        <div className={`${isHiddenModalAdd ? "absolute" : "hidden"} w-72 h-32 rounded-sm shadow-sm bg-purple-300 px-8 py-4 space-y-2`}>
-                            <div className="flex flex-col">
-                                <input onChange={(e) => {setTitleNewBoard(e.target.value)}} value={valueTitleNewBoard} type="text" placeholder="Title" className="focus:outline-none px-4 py-1 rounded-sm shadow"/>
-                            </div>
-                            <ColorsCatWalk setColor={setColor}/>
-                            <div>
-                                <button onClick={handleClickAddBoard} className="bg-purple-500 px-4 py-1 rounded-sm shadow float-right">Add</button>
-                            </div>
-                        </div>
+                        <ModalBoard isHiddenModal={isHiddenModalAdd} handleClickBoard={handleClickAddBoard}/>
                     </div>
                     {
                         Boards.map((item) => (

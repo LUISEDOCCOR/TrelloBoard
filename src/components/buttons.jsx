@@ -3,7 +3,7 @@ import React from "react";
 
 const LayoutButton = ({children, color, callback}) => {
     return (
-        <button onClick={callback} style={{backgroundColor: color}} className="w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
+        <button onClick={callback} style={{backgroundColor: color}} className="w-12 h-12 rounded-full flex items-center justify-center shadow-sm hover:scale-110 transition-transform">
             {children}
         </button>
     )
