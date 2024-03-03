@@ -7,14 +7,14 @@ import { Button } from "../components/buttons";
 import { getColumns } from "../localStorage/columns";
 import { addColumns } from "../localStorage/columns";
 import Column from "../components/column";
-import ModalBoard from "../components/modalBoard";
+import ModalBoard from "../components/addModal";
 
 const Board = () => {
     
     const {key} = useParams()
     const [board, setBoard] = useState([])
     const [columns, setColumns] = useState([])
-    const [isHiddenModalAdd, setHiddenModalAdd] = useState(false)
+    const [isHiddenModalAdd, setHiddenModalAdd] = useState(true)
 
 
     useEffect(() => {

@@ -5,13 +5,13 @@ import SideBar from "../components/SideBar";
 import PreviewBoard from "../components/PreviewBoard";
 import { addBoard } from "../localStorage/boards";
 import { getBoards } from "../localStorage/boards";
-import ModalBoard from "../components/modalBoard";
+import ModalBoard from "../components/addModal";
 import { deleteBoard } from "../localStorage/boards";
 
 
 const HomePage = () => {
 
-    const [isHiddenModalAdd, setHiddenModalAdd] = useState(false)
+    const [isHiddenModalAdd, setHiddenModalAdd] = useState(true)
     const [Boards, setBoards] = useState([])
 
     const handleClickAddBoard = (valueTitleNewBoard, valueColor, setTitleNewBoard) => {
