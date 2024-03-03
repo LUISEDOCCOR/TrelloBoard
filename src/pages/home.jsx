@@ -17,7 +17,7 @@ const HomePage = () => {
     const handleClickAddBoard = (valueTitleNewBoard, valueColor, setTitleNewBoard) => {
         if(valueTitleNewBoard != ""){
             addBoard(valueTitleNewBoard, valueColor)
-            setHiddenModalAdd(false)
+            setHiddenModalAdd(true)
             setBoards(getBoards())
             setTitleNewBoard("")
 

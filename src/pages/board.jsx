@@ -29,7 +29,7 @@ const Board = () => {
     const handleClickAddColumn = (valueTitleNewColumns, valueColor, setTitleNewColumns) => {
         if(valueTitleNewColumns != ""){
             addColumns(valueTitleNewColumns, valueColor, key)
-            setHiddenModalAdd(false)
+            setHiddenModalAdd(true)
             setColumns(getColumns(key))
             setTitleNewColumns("")
 
