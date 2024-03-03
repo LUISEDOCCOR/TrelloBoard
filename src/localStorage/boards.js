@@ -1,3 +1,5 @@
+import { deleteColumns } from "./columns"
+
 export const getKey = () => {
     return new Date().getTime()
 }
@@ -23,4 +25,11 @@ export const getOnlyBoard = (key) => {
     const boards = JSON.parse(localStorage.getItem("boards")) || []
     const board =  boards.filter(item => item.key == key) || []
     return board
+}
+
+export const deleteBoard = (key) => {
+    const allBoards = JSON.parse(localStorage.getItem("boards")) || []
+    const boards =  allBoards.filter(item => item.key != key) || []
+    localStorage.setItem('boards', JSON.stringify(boards))
+    deleteColumns(key)
 }

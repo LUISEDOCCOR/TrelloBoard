@@ -6,7 +6,7 @@ import PreviewBoard from "../components/PreviewBoard";
 import { addBoard } from "../localStorage/boards";
 import { getBoards } from "../localStorage/boards";
 import ModalBoard from "../components/modalBoard";
-
+import { deleteBoard } from "../localStorage/boards";
 
 
 const HomePage = () => {
@@ -22,6 +22,12 @@ const HomePage = () => {
             setTitleNewBoard("")
 
         }
+    }
+
+    const handleDeleteBoard = (key) => {
+        deleteBoard(key)
+        setBoards(getBoards())
+
     }
 
     useEffect(() => {
@@ -47,7 +53,7 @@ const HomePage = () => {
                     </div>
                     {
                         Boards.map((item) => (
-                            <PreviewBoard key={item.key} title={item.title} bgColor={item.bgColor} id={item.key} />
+                            <PreviewBoard handleDeleteBoard={handleDeleteBoard} key={item.key} title={item.title} bgColor={item.bgColor} id={item.key} />
                         ))
                     }
                 </div>
