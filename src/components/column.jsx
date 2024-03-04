@@ -13,7 +13,7 @@ const Column = ({title, bgColor}) => {
                 <span className="text-lg font-semibold ">
                     {title}
                 </span>
-                <div>
+                <div className="flex flex-col gap-2">
                     <Card/>
                     <Card/>
                 </div>
