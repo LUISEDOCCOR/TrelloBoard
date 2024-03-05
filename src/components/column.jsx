@@ -7,6 +7,10 @@ const Column = ({title, bgColor}) => {
 
     const [isHiddenModal, setHiddenModal] = useState(true)
 
+    const handleClickAddCard = (valueTitle, valueContent) => {
+
+    }
+
     return(
         <div className="flex flex-col gap-3">
             <article style={{backgroundColor: bgColor}} className="w-72 rounded-sm shadow-sm px-2 py-1 space-y-3">

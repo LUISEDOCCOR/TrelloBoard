@@ -1,10 +1,10 @@
 import React from "react";
 
-const Card = ({title, content}) => {
+const Card = ({title}) => {
     return (
         <div className="w-full rounded-sm bg-slate-500 px-2 py-1 flex justify-between items-center">
            <div>
-                <span className="font-semibold">Title</span>
+                <span className="font-semibold">{title}</span>
             </div>   
             <div className="flex items-center gap-2">
                 <button className="p-2 bg-slate-400 rounded-full hover:bg-slate-300 transition-colors cursor-pointer">

@@ -2,10 +2,11 @@ import React from "react";
 import ColorsCatWalk from "./colorCatwalk";
 import { useState } from "react";
 
-const ModalColumn = ({isHiddenModal}) => {
+const ModalColumn = ({isHiddenModal, handleClickAddCard}) => {
 
     const [valueTitle, setValueTitle] = useState("")
     const [valueContent, setValueContent] = useState("")
+    const [valueColorNewBoard, setColorNewBoard] = useState("")
 
 
     return (
@@ -16,7 +17,7 @@ const ModalColumn = ({isHiddenModal}) => {
                 <ColorsCatWalk/>
             </div>
             <div className="pr-8">
-                <button className="bg-purple-300 px-2 py-1 rounded float-right hover:bg-purple-500 transition-colors">Done!</button>                
+                <button onClick={() => {handleClickAddCard(valueTitle, valueContent)}} className="bg-purple-300 px-2 py-1 rounded float-right hover:bg-purple-500 transition-colors">Done!</button>                
             </div>
         </div>
     )
